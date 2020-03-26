@@ -6,6 +6,63 @@
     <title>Shall We Dance?</title>
 </head>
 <body>
-    <h1 style="text-align: center;">hello world!</h1>
+    <h1 style="text-align: center;">艾欧泽亚时间：<span id="time"></span></h1>
+    <script>
+        var EorzeaClock = /* @class */ (function () {
+        function EorzeaClock(ts) {
+            if (ts === void 0) {
+                ts = undefined;
+            }
+            if (ts !== undefined) {
+                this.date = new Date(ts);
+            }
+            else {
+                this.date = new Date((new Date()).getTime() * EorzeaClock.ratio);
+            }
+        }
+    
+        EorzeaClock.prototype.getHours = function () {
+            return this.date.getUTCHours();
+        };
+        EorzeaClock.prototype.addHours = function (hourspan) {
+            return new EorzeaClock(this.date.getTime() + hourspan * 3600000);
+        };
+        EorzeaClock.prototype.getMinutes = function () {
+            return this.date.getUTCMinutes();
+        };
+        EorzeaClock.prototype.getDays = function () {
+            return Math.floor(this.date.getTime() / 86400000);
+        };
+        EorzeaClock.prototype.getLocalTime = function () {
+            return new Date(this.date.getTime() / EorzeaClock.ratio);
+        };
+        EorzeaClock.prototype.toHourMinuteString = function () {
+            var hour = this.getHours();
+            var hs = "";
+            if (hour < 10) {
+                hs = "0" + hour;
+            }
+            else {
+                hs += hour;
+            }
+            var min = this.getMinutes();
+            var ms = "";
+            if (min < 10) {
+                ms = "0" + min;
+            }
+            else {
+                ms += min;
+            }
+            return hs + ":" + ms;
+        };
+        EorzeaClock.ratio = 1440 / 70;
+        return EorzeaClock;
+    }());
+    </script>
+    <script>
+        setInterval(()=>{
+            document.getElementById("time").innerText=new EorzeaClock().toHourMinuteString();
+        },1000)
+    </script>
 </body>
 </html>
