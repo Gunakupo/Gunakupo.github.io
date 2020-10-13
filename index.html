@@ -1,12 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shall We Dance?</title>
+    <title>Ohhhhhh</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="./css/cover.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <h1 style="text-align: center;">艾欧泽亚时间：<span id="time"></span></h1>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+  
+          <div class="cover-container">
+  
+            <div class="masthead clearfix">
+              <div class="inner">
+                <h3 class="masthead-brand">艾欧泽亚时间：<span id="time">00:00</span></h3>
+                <nav>
+                  <ul class="nav masthead-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+  
+            <div class="inner cover">
+              <h1 class="cover-heading">这是一个神秘的主页</h1>
+              <p class="lead shishi">里面什么都没有，按按钮也什么都不会发生</p>
+              <p class="lead btn">
+                <a href="#" class="btn btn-lg btn-default">不信就试试</a>
+              </p>
+            </div>
+  
+            <div class="mastfoot">
+              <div class="inner">
+                <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                <p>谢谢您，页面很好看，孩子很喜欢</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+
     <script>
         var EorzeaClock = /* @class */ (function () {
         function EorzeaClock(ts) {
@@ -63,6 +119,15 @@
         setInterval(()=>{
             document.getElementById("time").innerText=new EorzeaClock().toHourMinuteString();
         },1000)
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        $(".btn").click(()=>{
+            $(".shishi").text("?").css("color","#c15454");
+        })
     </script>
 </body>
 </html>
